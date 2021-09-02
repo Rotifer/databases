@@ -9,7 +9,7 @@ use TableFormatter;
 
 my $sqlite_path = '/usr/local/opt/sqlite/bin/sqlite3';
 my $tsv_file2load = 'example_file.tsv';
-my $format = 'markdown';
+my $format = 'html';
 my $html = TableFormatter::get_formatted_file( $sqlite_path,  $tsv_file2load, $format);
-print "$html\n";
-
+my $page_title = 'Hugo Genes';
+print TableFormatter::get_formatted_html_page($html, $page_title);
