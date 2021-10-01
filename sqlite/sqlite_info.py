@@ -1,10 +1,11 @@
 import sqlite3
 
-class SQLiteCLI:
+class SQLiteInfo:
     """
     """
     def __init__(self, path_to_sqlite_db):
         """
+
         """
         self.path_to_sqlite_db = path_to_sqlite_db
         self.conn = sqlite3.connect(self.path_to_sqlite_db)
@@ -57,9 +58,9 @@ class SQLiteCLI:
         self.conn.close()
 
 if __name__ == '__main__':
-    sql_cli = SQLiteCLI('/Users/mfm45656/databases/sqlite/genes.db')
-    print(sql_cli.get_table_names())
-    print(sql_cli.get_column_names_for_table('hugo_genes'))
+    db_info = SQLiteInfo('/Users/mfm45656/databases/sqlite/genes.db')
+    print(db_info.get_table_names())
+    print(db_info.get_column_names_for_table('hugo_genes'))
     #del sql_cli
-    import os
-    print(os.listdir('.'))
+    #import os
+    #print(os.listdir('.'))
