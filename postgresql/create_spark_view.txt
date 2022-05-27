@@ -1,0 +1,52 @@
+CREATE VIEW analyses_gc AS
+SELECT
+    analysis,
+    description,
+    label,
+    phenotype,
+    covariates,
+    cohort,
+    unit,
+    ncase,
+    ncontrol,
+    ncohort,
+    entity_type,
+    source,
+    url,
+    url_file,
+    hdfs_path,
+    file_path,
+    rescale_import,
+    pubmedid,
+    has_rsq,
+    has_freq,
+    results_db,
+    update_date
+FROM
+    gene_gwas_hg38_use.analyses
+UNION
+SELECT
+    analysis_id,
+    analysis_label,
+    analysis_description,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    pubmedid,
+    null,
+    null,
+    null,
+    null
+FROM
+    gwas_catalog_tophits_r2021_06_08_mesh;
